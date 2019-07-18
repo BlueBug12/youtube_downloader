@@ -40,13 +40,14 @@ def delete_node(index):
 def download(destination):
 	for url in url_list:
 		destination = "\""+destination+"\""
-		os.system("youtube-dl --output /%(title)s.%(ext)s -x --audio-format mp3 "+url)
+		os.system("youtube-dl --output /%(title)s.%(ext)s -x --audio-format mp3 --add-metadata "+url)
 		print('done!!') 
+	global name_list
 	name_list=[]
 	global url_list
 	url_list=[]
 	c1_var.set("                                       (如需刪除再點選)")
-	c1['value']=[]
+	c1['value']=name_list
 	c1.grid(ipadx=10,column=1,columnspan=3,row=2)
 
 
